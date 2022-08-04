@@ -27,5 +27,9 @@ jobs:
     - name: ci
       working-directory: ./web
       run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: build
+      run: npm run build --if-present
+      working-directory: ./web
+    - name: test
+      working-directory: ./web
+      run: npm test
