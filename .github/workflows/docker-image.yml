@@ -27,4 +27,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: chrbudtz/devops:latest
+          tags: chrbudtz/devops:latest,
+      -
+        name: Trigger redploy on Caprover
+        uses: floms/action-caprover@v1
+        with:
+          host: 'https://captain.caprover.diplomportal.dk/'
+          password: '${{ secrets.CAPROVER_PASSWORD}}'
+          app: 'devopse22'
+          image: 'chrbudtz/devops'
+          
