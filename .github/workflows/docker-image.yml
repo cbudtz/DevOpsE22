@@ -39,4 +39,4 @@ jobs:
           CAPROVER_APP_TOKEN: '${{secrets.CAPROVER_PASSWORD}}'
           IMAGE_NAME: 'chrbudtz/devops'
         run: 
-         'caprover deploy --caproverUrl=$APP_URL --caproverPassword $CAPROVER_APP_TOKEN --imageName=$IMAGE_NAME --appName=$APP_NAME'
+         'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
