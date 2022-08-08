@@ -3,7 +3,8 @@ name: java-docker-ci
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
+  workflow_dispatch:      
 
 jobs:
   docker:
