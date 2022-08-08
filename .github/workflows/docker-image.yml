@@ -36,7 +36,6 @@ jobs:
         env: 
           APP_NAME: 'devopse22'
           APP_URL: 'https://captain.4a4b.dk/'
-          CAPROVER_APP_TOKEN: '${{secrets.CAPROVER_PASSWORD}}'
           IMAGE_NAME: 'chrbudtz/devops'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
