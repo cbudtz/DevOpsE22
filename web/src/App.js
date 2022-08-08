@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn <b>John Dillerman!</b>
+          Learn React and John Dillermand!
         </a>
       </header>
     </div>
