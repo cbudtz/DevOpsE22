@@ -29,11 +29,14 @@ jobs:
           push: true
           tags: chrbudtz/devops:latest,
       -
-        name: Trigger redploy on Caprover
-        uses: floms/action-caprover@v1
-        with:
-          host: 'https://captain.caprover.diplomportal.dk/'
-          password: '${{ secrets.CAPROVER_PASSWORD}}'
-          app: 'devopse22'
-          image: 'chrbudtz/devops'
-          
+        name: install caprover cli
+        run: npm install -g caprover
+      - 
+        name: Deploy app
+        env: 
+          APP_NAME: 'devopse22'
+          APP_URL: 'https://captain.caprover.diplomportal.dk/'
+          CAPROVER_APP_TOKEN: ${{secrets.CAPROVER_PASSWORD}}
+          IMAGE_NAME: 'chrbudtz/devops'
+        run: 
+         'caprover deploy --caproverUrl=$APP_URL --imageName=$IMAGE_NAME --appName=$APP_NAME'
