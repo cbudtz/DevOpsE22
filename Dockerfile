@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-18
+FROM maven:3.8.6-openjdk-18
 WORKDIR /tmp
 COPY /src/ ./src
 COPY /pom.xml ./
