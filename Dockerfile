@@ -4,4 +4,4 @@ COPY /src/ ./src
 COPY /pom.xml ./
 RUN mvn package
 EXPOSE 8080
-CMD ["java","-jar", "/tmp/target/devops-fatjar.jar"]
+CMD ["java","-Xmx1024m", "-jar", "/tmp/target/devops-fatjar.jar"]
