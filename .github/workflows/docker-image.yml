@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: chrbudtz/devops:latest,
+          tags: chrbudtz/devops:${{github.run_number}},
       -
         name: install caprover cli
         run: npm install -g caprover
@@ -36,6 +36,6 @@ jobs:
         env: 
           APP_NAME: 'devopse22'
           APP_URL: 'https://captain.4a4b.dk/'
-          IMAGE_NAME: 'chrbudtz/devops'
+          IMAGE_NAME: 'chrbudtz/devops:${{github.run_number}}'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
