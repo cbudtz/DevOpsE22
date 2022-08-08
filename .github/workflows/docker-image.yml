@@ -35,7 +35,7 @@ jobs:
         name: Deploy app
         env: 
           APP_NAME: 'devopse22'
-          APP_URL: 'https://captain.caprover.diplomportal.dk/'
+          APP_URL: 'https://captain.4a4b.dk/'
           CAPROVER_APP_TOKEN: ${{secrets.CAPROVER_PASSWORD}}
           IMAGE_NAME: 'chrbudtz/devops'
         run: 
