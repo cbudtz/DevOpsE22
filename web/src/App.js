@@ -1,28 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hi, Devops</h1>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>DevOps</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Devops
-        </a>
-        <button>Login</button>
-      </header>
-
-    </div>
-  );
+    const [username, setUsername] = useState("Brian")
+    return (
+        <div className="App">
+            <div>Hello, {username}</div>
+            <button onClick={(e)=>setUsername("Johnny")}>Skift navn</button>
+        </div>
+    );
+}
+const Greeting = ({username})=> {
+    return (<h1>Hello, {username}</h1>)
 }
 
 export default App;
