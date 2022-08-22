@@ -1,28 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import {Route, Routes} from "react-router-dom"
+import {Home} from "./Home";
+import {Greeting} from "./Greeting";
+import {TodoPage} from "./pages/TodoPage";
+import {userStore} from "./stores/UserStore";
+import {LoginPage} from "./pages/LoginPage";
+import {observer} from "mobx-react-lite";
+
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hi, Devops</h1>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>DevOps</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Devops
-        </a>
-        <button>Login</button>
-      </header>
+    const [username, setUsername] = useState("Brian")
+    if (!userStore.user){
+        return (<LoginPage/>)
+    }
+    return (
+        <Routes>
+            <Route path="/" element ={
+                <Home userName={username} onClick={(e) => setUsername("Johnny")}/>}/>
+            <Route path={"/about/:value"} element={
+                <Greeting username={username}></Greeting>
+            }/>
+            <Route path="*" element={<h1>404!</h1>}/>
+            <Route path="todoPage" element={<TodoPage/>}/>
 
-    </div>
-  );
+        </Routes>
+
+    );
 }
 
-export default App;
+export default observer(App);
