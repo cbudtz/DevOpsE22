@@ -10,5 +10,8 @@ export function Home({onClick, userName}) {
             <Link to={"about/link"}>Go to greeting</Link>
         </div>
         <Button onClick={(e) => navigate("about/button")}>Or like this</Button>
+        <div>
+            <Link to={"giraffes"}>Look at giraffes!</Link>
+        </div>
     </div>;
 }

@@ -1,14 +1,14 @@
-import {todoStore} from "../stores/TodoStore";
+import {todoStore} from "../stores/GiraffeStore";
 import {Button, TextField} from "@mui/material";
 import {useState} from "react";
 import {observer} from "mobx-react-lite";
 
-export const TodoPage = observer(props =>{
+export const GiraffePage = observer(props =>{
   const [text,setText] = useState("");
   return (<div>
-    {todoStore.Todos.map((todo,index)=>
+    {todoStore.Giraffes.map((giraffe, index)=>
         <div key={index}>
-          <h3>{todo}</h3>
+          <h3>{giraffe}</h3>
         </div>
     )}
     <div>Ny todo</div>
@@ -18,6 +18,6 @@ export const TodoPage = observer(props =>{
     <Button onClick={()=>{
       todoStore.addTodo(text);
       setText("");
-    }}>Tilføj Todo</Button>
+    }}>Add Giraffe</Button>
   </div>)
 })

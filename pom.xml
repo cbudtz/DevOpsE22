@@ -13,10 +13,35 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
     <dependencies>
+        <!-- Embedded tomcat server -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>10.0.21</version>
+            <version>10.0.23</version>
+        </dependency>
+        <!-- Rest Spec -->
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!-- Servlet Container -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <!-- Injection Manager -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <!-- JSON Serializer -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>3.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
