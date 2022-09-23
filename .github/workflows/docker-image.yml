@@ -8,35 +8,35 @@ on:
   workflow_dispatch:      
 
 jobs:
-  docker:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
+      # Initialize Emumlation
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+      # Setup Docker
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub
+      # Login to DockerHub
+      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
+      # Build Docker image and push to DockerHub
+      - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
           tags: chrbudtz/devops:${{github.run_number}},
-      -
-        name: install caprover cli
+      # Install caprover cli
+      - name: install caprover cli
         run: npm install -g caprover
-      - 
-        name: Deploy app
+      # Trigger deploy on Caprover instance
+      - name: Deploy app
         env: 
           APP_NAME: 'devopse22'
-          APP_URL: 'https://captain.4a4b.dk/'
+          APP_URL: 'https://devopse22.diplomportal.dk/'
           IMAGE_NAME: 'chrbudtz/devops:${{github.run_number}}'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
