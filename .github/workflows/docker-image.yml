@@ -28,7 +28,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: chrbudtz/devops:${{github.run_number}},
+          tags: chrbudtz/devops:${{github.run_number}}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       # Install caprover cli
       - name: install caprover cli
         run: npm install -g caprover
