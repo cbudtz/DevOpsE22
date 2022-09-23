@@ -3,7 +3,7 @@ import {userStore} from "../stores/UserStore";
 
 export const LoginPage = ()=>(
     <div>
-        <Button onClick={userStore.login}>
+        <Button variant={"contained"} onClick={userStore.login}>
             Login
         </Button>
         </div>
