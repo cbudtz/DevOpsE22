@@ -13,7 +13,7 @@ export const GiraffePage = observer(() =>{
               <h3>{giraffe}</h3>
             </div>
         )}
-        <div>New Giraffe</div>
+        <div>Add new Giraffe</div>
         <div>
           <TextField value={text} onChange={(e)=>setText(e.target.value)}/>
         </div>
