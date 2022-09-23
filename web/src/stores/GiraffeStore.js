@@ -6,6 +6,7 @@ const baseUrl = process.env.NODE_ENV === 'development' ?
 
 class GiraffeStore {
     Giraffes = ["loading"];
+
     constructor() {
         makeAutoObservable(this,
             {},
@@ -23,6 +24,9 @@ class GiraffeStore {
     }
     addTodo = (giraffe)=> {
         this.Giraffes.push(giraffe);
+    }
+    removeGiraffe = ()=>{
+        this.Giraffes.pop();
     }
 
 }

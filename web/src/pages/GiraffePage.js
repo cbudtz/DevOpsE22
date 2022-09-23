@@ -25,7 +25,7 @@ export const GiraffePage = observer(() =>{
           }}>Add Giraffe</Button>
       </Grid>
       <Grid xs={6}>
-        <Button variant={"contained"}>Remove Giraffe</Button>
+        <Button variant={"contained"} onClick={()=>todoStore.removeGiraffe()}>Remove Giraffe</Button>
       </Grid>
     </Grid>)
 })
