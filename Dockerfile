@@ -7,9 +7,9 @@ RUN mvn package
 FROM node:18-slim AS REACT
 WORKDIR /tmp
 COPY /web/package.json  ./
+RUN yarn install
 COPY /web/src ./src
 COPY /web/public ./public
-RUN yarn install
 RUN yarn build
 
 FROM openjdk:18-alpine
