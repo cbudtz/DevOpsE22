@@ -14,6 +14,10 @@ class GiraffeStore {
         )
         this.fetchGiraffes();
     }
+
+    get numberOfGiraffes(){
+        return this.Giraffes.length
+    }
     fetchGiraffes() {
         fetch(baseUrl + "api/giraffes").then(
             (response)=> response.json().then(
@@ -31,4 +35,4 @@ class GiraffeStore {
 
 }
 
-export const todoStore = new GiraffeStore();
+export const giraffeStore = new GiraffeStore();
