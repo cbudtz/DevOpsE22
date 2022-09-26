@@ -15,5 +15,13 @@ export function ExperimentPage() {
     return <div>
         {JSON.stringify(officers)}
         {JSON.stringify(personnel)}
+        {/*if (officers.length<=0) {<div>NO Officers!</div>*/}
+        {officers.length>=0 && <div>more than 0 Officers</div>}
+        <ol>
+            {officers.map((el) =>
+                <li>{el.name}</li>
+            )
+            }
+        </ol>
     </div>;
 }
