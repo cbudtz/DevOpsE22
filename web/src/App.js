@@ -7,6 +7,7 @@ import {GiraffePage} from "./pages/GiraffePage";
 import {userStore} from "./stores/UserStore";
 import {LoginPage} from "./pages/LoginPage";
 import {observer} from "mobx-react-lite";
+import {WorkdaysPage} from "./pages/WorkdaysPage";
 import {ExperimentPage} from "./pages/ExperimentPage";
 
 
@@ -18,12 +19,14 @@ function App() {
     return (
         <Routes>
             <Route path="/" element ={
-                <Home userName={username} onClick={() => setUsername("Johnny")}/>}/>
+                <Home userName={username} onClick={(e) => setUsername("Johnny")}/>}/>
             <Route path={"/about/:value"} element={
-                <Greeting username={username}/>
+                <Greeting username={username}></Greeting>
             }/>
             <Route path="*" element={<h1>404!</h1>}/>
             <Route path="giraffes" element={<GiraffePage/>}/>
+            <Route path="praktik" element={<WorkdaysPage/>}/>
+
             <Route path={"experiments"} element={<ExperimentPage/>}/>
         </Routes>
 
