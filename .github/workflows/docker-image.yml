@@ -45,7 +45,7 @@ jobs:
 
   test:
     name: Cypress Integration Tests
-    needs: deploy-test
+    needs: build-and-deploy
     runs-on: ubuntu-latest
 
     steps:
