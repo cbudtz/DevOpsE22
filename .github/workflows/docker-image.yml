@@ -43,19 +43,19 @@ jobs:
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
 
-  test:
-    name: Cypress Integration Tests
-    needs: deploy-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run Cypress
-        uses: cypress-io/github-action@v4
-        with:
-          working-directory: e2e
-          config: baseUrl=https://devopse22.4a4b.dk
-        env:
-          # pass GitHub token to allow accurately detecting a build vs a re-run build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  test:
+#    name: Cypress Integration Tests
+#    needs: deploy-test
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#      - name: Run Cypress
+#        uses: cypress-io/github-action@v4
+#        with:
+#          working-directory: e2e
+#          config: baseUrl=https://devopse22.4a4b.dk
+#        env:
+#          # pass GitHub token to allow accurately detecting a build vs a re-run build
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
