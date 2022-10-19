@@ -2,10 +2,7 @@ package service;
 
 import data.HibernateController;
 import data.User;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.java.Log;
@@ -40,4 +37,11 @@ public class UserService {
         List<User> data = session.createQuery(query).getResultList();
         return data;
     }
+    @GET
+    @Path("query")
+    public List<User> queryUsers(@QueryParam("name") String name) throws NoImplementationException {
+        //No implementation yet
+        throw new NoImplementationException("user-queries not implemented, yet");
+    }
+
 }

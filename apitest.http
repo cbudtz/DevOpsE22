@@ -8,3 +8,7 @@ Content-Type: application/json
 ###
 GET localhost:8080/api/hello
 Authorization: "very secret token!"
+
+###
+GET localhost:8080/api/users/query
+Authorization: "very secret token!"

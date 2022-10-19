@@ -3,7 +3,7 @@ package data;
 import lombok.Data;
 
 @Data
-public class UserLogin {
+public class LoginData {
     public String username;
     public String password;
 }
