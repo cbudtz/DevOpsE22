@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.jupiter.api.Test;
-import service.GiraffeService;
+import service.UserService;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class TestDB {
 
     @Test
     public void getAllUsers(){
-        List<User> giraffes = new GiraffeService().getGiraffes();
+        List<User> giraffes = new UserService().getUsers();
         System.out.println(giraffes);
     }
 }

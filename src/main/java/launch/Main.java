@@ -1,9 +1,12 @@
 package launch;
 
+import lombok.extern.java.Log;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.FileHandler;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +23,7 @@ public class Main {
             tomcat.start();
             tomcat.getServer().await();
         } catch (LifecycleException e) {
+
             throw new RuntimeException(e);
         }
 

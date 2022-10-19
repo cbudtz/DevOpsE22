@@ -1,0 +1,10 @@
+
+###
+POST localhost:8080/api/login
+Content-Type: application/json
+
+{"username":"brian","password":"kodeord"}
+
+###
+GET localhost:8080/api/hello
+Authorization: "very secret token!"
