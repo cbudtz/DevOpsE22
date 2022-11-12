@@ -16,5 +16,6 @@ export function Home({onClick, userName}) {
         <div>
             <Link to={"experiments"}>Go to JS experiments</Link>
         </div>
+        <Button onClick={10/0}>Wake Sentry!</Button>
     </div>;
 }

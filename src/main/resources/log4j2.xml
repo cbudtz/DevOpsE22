@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" packages="org.apache.logging.log4j.core,io.sentry.log4j2">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="MyFile" fileName="logs/app.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="Errors" fileName="logs/error.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <Sentry name="Sentry"
+                dsn="https://76385980187243299529a76515668de4@o4504146384388096.ingest.sentry.io/4504146396119042"/>
+    </appenders>
+
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="Console" level="info"/>
+            <appender-ref ref="MyFile" level="info"/>
+            <appender-ref ref="Errors" level="error"/>
+            <appender-ref ref="Sentry" level="error"/>
+        </root>
+    </loggers>
+</configuration>

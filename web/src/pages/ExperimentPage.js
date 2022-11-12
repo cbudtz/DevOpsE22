@@ -11,18 +11,30 @@ export function ExperimentPage() {
         { id: 56, name: 'Admiral Ozzel', pilotingScore: 5, shootingScore: 20, isForceUser:true },
         { id: 88, name: 'Commander Jerjerrod', score: -5 }
     ];
-
+    const id = officers.map((el)=>el.id);
+    const totalScore = officers.reduce((acc,el)=>acc+el.score,0)
+    const highscorers = officers.filter((el)=>el.score>10)
+    const totalJediScore = personnel
+        .filter((el)=>el.isForceUser)
+        .map(el=>el.shootingScore+el.pilotingScore)
+        .reduce((acc,el)=>acc+el,0)
     return <div>
         {JSON.stringify(officers)}
         {JSON.stringify(personnel)}
-        {/*if (officers.length<=0) {<div>NO Officers!</div>*/}
-        {officers.length>=0 && <div>more than 0 Officers</div>}
-        <ol>
-            {officers.map((el) =>
-                <li>{el.name}</li>
-            )
-            }
-        </ol>
+        <div>
+            {JSON.stringify(id)}
+        </div>
+        <div>Totalscore: {totalScore}</div>
+        <div>HighScorers:
+            <ol>
+                {highscorers.map((el) =>
+                    <li>{el.name}:{el.score}</li>
+                )
+                }
+            </ol>
+        </div>
+        <div>TotalJediScore: {totalJediScore}</div>
+
         <div>Test</div>
     </div>;
 }
