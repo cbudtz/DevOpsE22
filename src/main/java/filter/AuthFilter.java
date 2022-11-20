@@ -21,10 +21,9 @@ public class AuthFilter implements ContainerRequestFilter {
         System.out.println(context.getUriInfo().getPath());
         var token = context.getHeaderString("Authorization");
         log.error("Token: " + token);
-        if ("login".equals(context.getUriInfo().getPath())) return ;
-        if (token==null){ //TODO Real validation!
-            context.abortWith(Response.status(UNAUTHORIZED).build());
-        }
-        //Else - Everything is Awesome!
+//        if ("login".equals(context.getUriInfo().getPath())) return ;
+//        if (token==null){ //TODO Real validation!
+//            context.abortWith(Response.status(UNAUTHORIZED).build());
+//        }
     }
 }

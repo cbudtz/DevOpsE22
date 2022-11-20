@@ -17,5 +17,6 @@ export function Home({onClick, userName}) {
             <Link to={"experiments"}>Go to JS experiments</Link>
         </div>
         <Button onClick={10/0}>Wake Sentry!</Button>
+        <Button onClick={()=>{window.deferredPrompt.prompt();}}>Installér som Native App</Button>
     </div>;
 }

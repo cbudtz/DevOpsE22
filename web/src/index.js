@@ -6,6 +6,7 @@ import { BrowserTracing } from "@sentry/tracing";
 import App from "./App";
 
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import {HashRouter} from "react-router-dom";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -22,6 +23,11 @@ Sentry.init({
     tracesSampleRate: 1.0,
 });
 
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Stash the event so it can be triggered later.
+    console.log("Got beforeinstallprompt");
+    window.deferredPrompt = e;
+});
 
 
 
@@ -38,3 +44,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+serviceWorkerRegistration.register();
